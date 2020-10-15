@@ -10,9 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var screenWidth = 0
+    var screenHeight = 0
+    var score = 0
+    var scorelbl = UILabel()
+    var backgroundlbl = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let screenBounds: CGRect = UIScreen.main.bounds
+        screenWidth = Int(screenBounds.width)
+        screenHeight = Int(screenBounds.height)
+        
+        scorelbl.frame = CGRect(x: 20, y: 20, width: 50, height: (screenHeight-40)/10)
+        scorelbl.text = "\(score)"
+        view.addSubview(scorelbl)
+        
+        backgroundlbl.frame = CGRect(x: 20, y: 20+Int(scorelbl.frame.height), width: (screenWidth-40), height: (screenHeight-40-Int(scorelbl.frame.height)))
+        backgroundlbl.backgroundColor = UIColor.green
+        view.addSubview(backgroundlbl)
+        
+        self.view = view
     }
 
 
