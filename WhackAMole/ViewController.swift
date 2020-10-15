@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         backgroundlbl.backgroundColor = UIColor.green
         view.addSubview(backgroundlbl)
         
-        molebtn.frame = CGRect(x: screenWidth/2-25, y: 40+Int(scorelbl.frame.height), width: 50, height: 50)
+        molebtn.frame = CGRect(x: Int.random(in: 20...screenWidth-70), y: Int.random(in: 20...screenHeight-70), width: 50, height: 50)
         molebtn.backgroundColor = UIColor.brown
         molebtn.addTarget(self, action: #selector(hitMe(_:)), for: .touchUpInside)
         view.addSubview(molebtn)
