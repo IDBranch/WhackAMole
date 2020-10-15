@@ -43,6 +43,7 @@ class ViewController: UIViewController {
 
     @objc func hitMe(_ sender:UIButton!) {
         print("Mole has been tapped")
+        molebtn.removeFromSuperview()
         
         scorelbl.removeFromSuperview()
         score+=1
