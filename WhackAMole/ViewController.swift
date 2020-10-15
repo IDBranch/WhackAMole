@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var score = 0
     var scorelbl = UILabel()
     var backgroundlbl = UILabel()
+    var molebtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,16 @@ class ViewController: UIViewController {
         backgroundlbl.backgroundColor = UIColor.green
         view.addSubview(backgroundlbl)
         
+        molebtn.frame = CGRect(x: screenWidth/2-25, y: 40+Int(scorelbl.frame.height), width: 50, height: 50)
+        molebtn.backgroundColor = UIColor.brown
+        molebtn.addTarget(self, action: #selector(hitMe(_:)), for: .touchUpInside)
+        view.addSubview(molebtn)
+        
         self.view = view
     }
 
-
+    @objc func hitMe(_ sender:UIButton!) {
+        print("Mole has been tapped")
+    }
 }
 
