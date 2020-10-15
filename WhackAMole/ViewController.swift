@@ -43,6 +43,11 @@ class ViewController: UIViewController {
 
     @objc func hitMe(_ sender:UIButton!) {
         print("Mole has been tapped")
+        
+        scorelbl.removeFromSuperview()
+        score+=1
+        scorelbl.text = "\(score)"
+        view.addSubview(scorelbl)
     }
 }
 
