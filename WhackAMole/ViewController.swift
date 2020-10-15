@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var scorelbl = UILabel()
     var backgroundlbl = UILabel()
     var molebtn = UIButton()
+    var moletimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,8 @@ class ViewController: UIViewController {
         molebtn.addTarget(self, action: #selector(hitMe(_:)), for: .touchUpInside)
         view.addSubview(molebtn)
         
+        moletimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(newButton(_:)), userInfo: nil, repeats: true)
+        
         self.view = view
     }
 
@@ -49,6 +52,10 @@ class ViewController: UIViewController {
         score+=1
         scorelbl.text = "\(score)"
         view.addSubview(scorelbl)
+    }
+    
+    @objc func newButton(_ sender:UIButton!) {
+        molebtn.removeFromSuperview()
     }
 }
 
