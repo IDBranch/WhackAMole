@@ -56,6 +56,9 @@ class ViewController: UIViewController {
     
     @objc func newButton(_ sender:UIButton!) {
         molebtn.removeFromSuperview()
+        
+        molebtn.frame = CGRect(x: Int.random(in: 20...screenWidth-70), y: Int.random(in: 20...screenHeight-70), width: 50, height: 50)
+        view.addSubview(molebtn)
     }
 }
 
