@@ -46,14 +46,15 @@ class ViewController: UIViewController {
 
     @objc func hitMe(_ sender:UIButton!) {
         print("Mole has been tapped")
-        molebtn.removeFromSuperview()
+        
+        moletimer.fire()
         
         scorelbl.removeFromSuperview()
         score+=1
         scorelbl.text = "\(score)"
-        
         if score == 10 {
             moletimer.invalidate()
+            molebtn.removeFromSuperview()
             print("You win!")
         }
         
@@ -62,8 +63,11 @@ class ViewController: UIViewController {
     
     @objc func newButton(_ sender:UIButton!) {
         molebtn.removeFromSuperview()
-        
         molebtn.frame = CGRect(x: Int.random(in: 20...screenWidth-70), y: Int.random(in: 20+Int(scorelbl.frame.height)...screenHeight-70), width: 50, height: 50)
+        
+        moletimer.invalidate()
+        moletimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(newButton(_:)), userInfo: nil, repeats: true)
+        
         view.addSubview(molebtn)
     }
 }
